@@ -1,5 +1,76 @@
+// .push() .unshift() .reverse() .splice()
+
+const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+numbers.push(5)
+console.log(numbers)
+
+numbers.unshift(0)
+console.log(numbers)
+
+numbers.reverse()
+fruits.reverse()
+
+console.log(numbers)
+console.log(fruits)
+
+numbers.splice(2, 1)
+console.log(numbers)
+
+fruits.splice(2, 0, 'Orange')
+console.log(fruits)
+
+
+
+// .includes()
+/*
+const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+const a = numbers.includes(3)
+console.log(a)
+
+const b = fruits.includes('Heropy')
+console.log(b)
+*/
+
+
+// .find() .findIndex()
+
+/*
+const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+const a = fruits.find(fruit => /^B/.test(fruit))
+console.log(a)
+
+const b = fruits.findIndex(fruit => /^C/.test(fruit))
+console.log(b)
+*/
+
+
+// .filter()
+/*
+const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+const a = numbers.map(number => number < 3)
+console.log(a)
+
+const b = numbers.filter(number => number < 3)
+console.log(b)
+*/
+
+
+
+
+
+
+
 // Extend
 
+/*
 class Vehicle {
     constructor(name, wheel) {
         this.name = name
@@ -29,109 +100,113 @@ const myCar = new Car('F50', 4, true)
 const dogCar = new Car('Porche', 4, false)
 console.log(myCar)
 console.log(dogCar)
-
+*/
 
 
 
 // ES6 Classes
 
-// class User {
-//     constructor(first, last) {
-//         this.firstName = first
-//         this.lastName = last
-//     }
-//     getFullName() {
-//         return `${this.firstName} ${this.lastName}`
-//     }
-// }
+/*
+class User {
+    constructor(first, last) {
+        this.firstName = first
+        this.lastName = last
+    }
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`
+    }
+}
 
-// const heropy = new User('Heropy', 'Park')
-// const amy = new User('Amy', 'Clarke')
-// const neo = new User('Neo', 'Smith')
+const heropy = new User('Heropy', 'Park')
+const amy = new User('Amy', 'Clarke')
+const neo = new User('Neo', 'Smith')
 
-// console.log(amy.getFullName())
+console.log(amy.getFullName())
+*/
+
 
 
 // this
 
-// const timer = {
-//     name: 'Heropy!',
-//     timeout: function () {
-//         setTimeout( () => {
-//             console.log(this.name)
-//         }, 2000)
-//     }
-// }
-// timer.timeout()
+/*
+const timer = {
+    name: 'Heropy!',
+    timeout: function () {
+        setTimeout( () => {
+            console.log(this.name)
+        }, 2000)
+    }
+}
+timer.timeout()
+*/
+
+/*
+function User(name) {
+    this.name = name
+}
+User.prototype.normal = function () {
+    console.log(this.name)
+}
+User.prototype.arrow = () => {
+    console.log(this.name)
+}
+const heropy = new User('Heropy')
+heropy.normal()
+heropy.arrow()
 
 
 
-// function User(name) {
-//     this.name = name
-// }
-// User.prototype.normal = function () {
-//     console.log(this.name)
-// }
-// User.prototype.arrow = () => {
-//     console.log(this.name)
-// }
-// const heropy = new User('Heropy')
-// heropy.normal()
-// heropy.arrow()
-
-
-
-// const heropy = {
-//     name: 'Heropy',
-//     normal: function () {
-//         console.log(this.name)
-//     },
-//     arrow: () => {
-//         console.log(this.name)
-//     }
-// }
-// heropy.normal()
-// heropy.arrow()
-
+const heropy = {
+    name: 'Heropy',
+    normal: function () {
+        console.log(this.name)
+    },
+    arrow: () => {
+        console.log(this.name)
+    }
+}
+heropy.normal()
+heropy.arrow()
+*/
 
 // class
+/*
+function User(first, last) {
+    this.firstName = first
+    this.lastName = last
+}
 
-// function User(first, last) {
-//     this.firstName = first
-//     this.lastName = last
-// }
+User.prototype.getFullName = function () {
+    return `${this.firstName} ${this.lastName}`
+}
 
-// User.prototype.getFullName = function () {
-//     return `${this.firstName} ${this.lastName}`
-// }
+const heropy = new User('Heropy', 'Part')
+const amy = new User('Amy', 'Clarke')
+const neo = new User('Neo', 'Smith')
 
-// const heropy = new User('Heropy', 'Part')
-// const amy = new User('Amy', 'Clarke')
-// const neo = new User('Neo', 'Smith')
-
-// console.log(heropy.getFullName())
-// console.log(amy.getFullName())
-// console.log(neo.getFullName())
-
-
-
+console.log(heropy.getFullName())
+console.log(amy.getFullName())
+console.log(neo.getFullName())
+*/
 
 
 
 
 
-// Callback
 
-// function timeout(cb) {
-//     setTimeout (() => {
-//         console.log('TimTim!')
-//         cb()
-//     }, 3000)
-// }
-// timeout(() => {
-//     console.log('Done!')
-// })
 
+// Callback  ex) setTimeout, addEventListner...
+/*
+function timeout(cb) {
+    setTimeout (() => {
+        console.log('TimTim!')
+        cb()
+    }, 3000)
+}
+timeout(() => {
+    console.log('Done!')
+})
+*/
 
 
 
@@ -140,15 +215,16 @@ console.log(dogCar)
 // clearTimeout()
 // clearInterval()
 
-// const timer = setTimeout(() => {
-//     console.log('TimTim!')
-// }, 3000)
+/*
+const timer = setTimeout(() => {
+    console.log('TimTim!')
+}, 3000)
 
-// const h1El = document.querySelector('h1')
-// h1El.addEventListener('click', () => {
-//     clearTimeout(timer)
-// })
-
+const h1El = document.querySelector('h1')
+h1El.addEventListener('click', () => {
+    clearTimeout(timer)
+})
+*/
 
 
 
@@ -171,21 +247,22 @@ console.log(dogCar)
 
 // IIFE, Immediately-Invoked Function Expression
 
-// const a = 7
+/*
+const a = 7
 
-// function double() {
-//     console.log(a * 2)
-// }
-// double();
+function double() {
+    console.log(a * 2)
+}
+double();
 
-// (function () {
-//     console.log(a * 2)
-// })();
+(function () {
+    console.log(a * 2)
+})();
 
-// (function () {
-//     console.log(a * 2)
-// }());
-
+(function () {
+    console.log(a * 2)
+}());
+*/
 
 
 
@@ -193,20 +270,21 @@ console.log(dogCar)
 // arrow function
 // () => {} vs function () {}
 
-// const double = function (x) {
-//     return x * 2
-// }
-// console.log('double: ', double(7))
+/*
+const double = function (x) {
+    return x * 2
+}
+console.log('double: ', double(7))
 
 
-// const doubleArrow = (x) => {
-//     return x * 2
-// }
+const doubleArrow = (x) => {
+    return x * 2
+}
 
-// const doubleArrowww = (x) => x * 2
+const doubleArrowww = (x) => x * 2
 
-// console.log('doubleArrow', doubleArrow(7))
-
+console.log('doubleArrow', doubleArrow(7))
+*/
 
 
 
@@ -215,71 +293,76 @@ console.log(dogCar)
 // Variable Scope
 // var, let, const
 
-// function scope() {
+/*
+function scope() {
     
-//     if (true) {
-//         var a = 123
+    if (true) {
+        var a = 123
         
-//     }
-//     console.log(a)
-// }
-// scope()
-
+    }
+    console.log(a)
+}
+scope()
+*/
 
 // For statement
 
-// const ulEl = document.querySelector('ul')
+/*
+const ulEl = document.querySelector('ul')
 
-// console.log(ulEl)
+console.log(ulEl)
 
 
-// for (let i = 0; i < 10; i += 1) {
-//    const li = document.createElement('li')
-//    li.textContent = `list-${i + 1}`
-//    if ((i + 1)% 2 === 0) {
-//         li.addEventListener('click', function () {
-//         console.log(li.textContent)
-//        })
-//    }
+for (let i = 0; i < 10; i += 1) {
+   const li = document.createElement('li')
+   li.textContent = `list-${i + 1}`
+   if ((i + 1)% 2 === 0) {
+        li.addEventListener('click', function () {
+        console.log(li.textContent)
+       })
+   }
    
-//    ulEl.appendChild(li)
-// }
-
+   ulEl.appendChild(li)
+}
+*/
 
 
 
 // import random from './getRandom'
 
-// const a = random()
+/*
+const a = random()
 
-// switch (a) {
-//     case 0:
-//         console.log('a is 0')
-//         break
-//     case 2:
-//         console.log('a is 2')
-//         break
-//     case 4:
-//         console.log('a is 4')
-//         break
-//     default:
-//         console.log('rest...')
-// }
+switch (a) {
+    case 0:
+        console.log('a is 0')
+        break
+    case 2:
+        console.log('a is 2')
+        break
+    case 4:
+        console.log('a is 4')
+        break
+    default:
+        console.log('rest...')
+}
+*/
 
-
-
-// if (a === 0) {
-//     console.log('a is 0')
-// } else if (a === 2) {
-//     console.log('a is 2')
-// }
-// else {
-//     console.log('rest...')
-// }
-
+/*
+if (a === 0) {
+    console.log('a is 0')
+} else if (a === 2) {
+    console.log('a is 2')
+}
+else {
+    console.log('rest...')
+}
+*/
 
 
 // ternary operator
-// const a = 1 < 2
-// console.log(a ? 'true' : 'false')
 
+/*
+const a = 1 < 2
+console.log(a ? 'true' : 'false')
+*/

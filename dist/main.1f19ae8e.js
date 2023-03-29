@@ -118,156 +118,205 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+// .push() .unshift() .reverse() .splice()
+
+var numbers = [1, 2, 3, 4];
+var fruits = ['Apple', 'Banana', 'Cherry'];
+numbers.push(5);
+console.log(numbers);
+numbers.unshift(0);
+console.log(numbers);
+numbers.reverse();
+fruits.reverse();
+console.log(numbers);
+console.log(fruits);
+numbers.splice(2, 1);
+console.log(numbers);
+fruits.splice(2, 0, 'Orange');
+console.log(fruits);
+
+// .includes()
+/*
+const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+const a = numbers.includes(3)
+console.log(a)
+
+const b = fruits.includes('Heropy')
+console.log(b)
+*/
+
+// .find() .findIndex()
+
+/*
+const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+const a = fruits.find(fruit => /^B/.test(fruit))
+console.log(a)
+
+const b = fruits.findIndex(fruit => /^C/.test(fruit))
+console.log(b)
+*/
+
+// .filter()
+/*
+const numbers = [1, 2, 3, 4]
+const fruits = ['Apple', 'Banana', 'Cherry']
+
+const a = numbers.map(number => number < 3)
+console.log(a)
+
+const b = numbers.filter(number => number < 3)
+console.log(b)
+*/
+
 // Extend
-var Vehicle = /*#__PURE__*/_createClass(function Vehicle(name, wheel) {
-  _classCallCheck(this, Vehicle);
-  this.name = name;
-  this.wheel = wheel;
-});
-var myVehicle = new Vehicle('Car', '4');
-console.log(myVehicle);
-var Bicycle = /*#__PURE__*/function (_Vehicle) {
-  _inherits(Bicycle, _Vehicle);
-  var _super = _createSuper(Bicycle);
-  function Bicycle(name, wheel) {
-    _classCallCheck(this, Bicycle);
-    return _super.call(this, name, wheel);
-  }
-  return _createClass(Bicycle);
-}(Vehicle);
-var myBicycle = new Bicycle('mountain', 2);
-var dogBicycle = new Bicycle('dog', 2);
-console.log(myBicycle);
-console.log(dogBicycle);
-var Car = /*#__PURE__*/function (_Vehicle2) {
-  _inherits(Car, _Vehicle2);
-  var _super2 = _createSuper(Car);
-  function Car(name, wheel, license) {
-    var _this;
-    _classCallCheck(this, Car);
-    _this = _super2.call(this, name, wheel);
-    _this.license = license;
-    return _this;
-  }
-  return _createClass(Car);
-}(Vehicle);
-var myCar = new Car('F50', 4, true);
-var dogCar = new Car('Porche', 4, false);
-console.log(myCar);
-console.log(dogCar);
+
+/*
+class Vehicle {
+    constructor(name, wheel) {
+        this.name = name
+        this.wheel = wheel
+    }
+}
+const myVehicle = new Vehicle('Car','4')
+console.log(myVehicle)
+
+class Bicycle extends Vehicle {
+    constructor(name, wheel) {
+        super(name, wheel)
+    }
+}
+const myBicycle = new Bicycle('mountain',2)
+const dogBicycle = new Bicycle('dog', 2)
+console.log(myBicycle)
+console.log(dogBicycle)
+
+class Car extends Vehicle {
+    constructor(name, wheel, license) {
+        super(name, wheel)
+        this.license = license
+    }
+}
+const myCar = new Car('F50', 4, true)
+const dogCar = new Car('Porche', 4, false)
+console.log(myCar)
+console.log(dogCar)
+*/
 
 // ES6 Classes
 
-// class User {
-//     constructor(first, last) {
-//         this.firstName = first
-//         this.lastName = last
-//     }
-//     getFullName() {
-//         return `${this.firstName} ${this.lastName}`
-//     }
-// }
+/*
+class User {
+    constructor(first, last) {
+        this.firstName = first
+        this.lastName = last
+    }
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`
+    }
+}
 
-// const heropy = new User('Heropy', 'Park')
-// const amy = new User('Amy', 'Clarke')
-// const neo = new User('Neo', 'Smith')
+const heropy = new User('Heropy', 'Park')
+const amy = new User('Amy', 'Clarke')
+const neo = new User('Neo', 'Smith')
 
-// console.log(amy.getFullName())
+console.log(amy.getFullName())
+*/
 
 // this
 
-// const timer = {
-//     name: 'Heropy!',
-//     timeout: function () {
-//         setTimeout( () => {
-//             console.log(this.name)
-//         }, 2000)
-//     }
-// }
-// timer.timeout()
+/*
+const timer = {
+    name: 'Heropy!',
+    timeout: function () {
+        setTimeout( () => {
+            console.log(this.name)
+        }, 2000)
+    }
+}
+timer.timeout()
+*/
 
-// function User(name) {
-//     this.name = name
-// }
-// User.prototype.normal = function () {
-//     console.log(this.name)
-// }
-// User.prototype.arrow = () => {
-//     console.log(this.name)
-// }
-// const heropy = new User('Heropy')
-// heropy.normal()
-// heropy.arrow()
+/*
+function User(name) {
+    this.name = name
+}
+User.prototype.normal = function () {
+    console.log(this.name)
+}
+User.prototype.arrow = () => {
+    console.log(this.name)
+}
+const heropy = new User('Heropy')
+heropy.normal()
+heropy.arrow()
 
-// const heropy = {
-//     name: 'Heropy',
-//     normal: function () {
-//         console.log(this.name)
-//     },
-//     arrow: () => {
-//         console.log(this.name)
-//     }
-// }
-// heropy.normal()
-// heropy.arrow()
+
+
+const heropy = {
+    name: 'Heropy',
+    normal: function () {
+        console.log(this.name)
+    },
+    arrow: () => {
+        console.log(this.name)
+    }
+}
+heropy.normal()
+heropy.arrow()
+*/
 
 // class
+/*
+function User(first, last) {
+    this.firstName = first
+    this.lastName = last
+}
 
-// function User(first, last) {
-//     this.firstName = first
-//     this.lastName = last
-// }
+User.prototype.getFullName = function () {
+    return `${this.firstName} ${this.lastName}`
+}
 
-// User.prototype.getFullName = function () {
-//     return `${this.firstName} ${this.lastName}`
-// }
+const heropy = new User('Heropy', 'Part')
+const amy = new User('Amy', 'Clarke')
+const neo = new User('Neo', 'Smith')
 
-// const heropy = new User('Heropy', 'Part')
-// const amy = new User('Amy', 'Clarke')
-// const neo = new User('Neo', 'Smith')
+console.log(heropy.getFullName())
+console.log(amy.getFullName())
+console.log(neo.getFullName())
+*/
 
-// console.log(heropy.getFullName())
-// console.log(amy.getFullName())
-// console.log(neo.getFullName())
-
-// Callback
-
-// function timeout(cb) {
-//     setTimeout (() => {
-//         console.log('TimTim!')
-//         cb()
-//     }, 3000)
-// }
-// timeout(() => {
-//     console.log('Done!')
-// })
+// Callback  ex) setTimeout, addEventListner...
+/*
+function timeout(cb) {
+    setTimeout (() => {
+        console.log('TimTim!')
+        cb()
+    }, 3000)
+}
+timeout(() => {
+    console.log('Done!')
+})
+*/
 
 // setTimeout()
 // setInterval()
 // clearTimeout()
 // clearInterval()
 
-// const timer = setTimeout(() => {
-//     console.log('TimTim!')
-// }, 3000)
+/*
+const timer = setTimeout(() => {
+    console.log('TimTim!')
+}, 3000)
 
-// const h1El = document.querySelector('h1')
-// h1El.addEventListener('click', () => {
-//     clearTimeout(timer)
-// })
+const h1El = document.querySelector('h1')
+h1El.addEventListener('click', () => {
+    clearTimeout(timer)
+})
+*/
 
 // Hoisting
 
@@ -281,98 +330,115 @@ console.log(dogCar);
 
 // IIFE, Immediately-Invoked Function Expression
 
-// const a = 7
+/*
+const a = 7
 
-// function double() {
-//     console.log(a * 2)
-// }
-// double();
+function double() {
+    console.log(a * 2)
+}
+double();
 
-// (function () {
-//     console.log(a * 2)
-// })();
+(function () {
+    console.log(a * 2)
+})();
 
-// (function () {
-//     console.log(a * 2)
-// }());
+(function () {
+    console.log(a * 2)
+}());
+*/
 
 // arrow function
 // () => {} vs function () {}
 
-// const double = function (x) {
-//     return x * 2
-// }
-// console.log('double: ', double(7))
+/*
+const double = function (x) {
+    return x * 2
+}
+console.log('double: ', double(7))
 
-// const doubleArrow = (x) => {
-//     return x * 2
-// }
 
-// const doubleArrowww = (x) => x * 2
+const doubleArrow = (x) => {
+    return x * 2
+}
 
-// console.log('doubleArrow', doubleArrow(7))
+const doubleArrowww = (x) => x * 2
+
+console.log('doubleArrow', doubleArrow(7))
+*/
 
 // Variable Scope
 // var, let, const
 
-// function scope() {
-
-//     if (true) {
-//         var a = 123
-
-//     }
-//     console.log(a)
-// }
-// scope()
+/*
+function scope() {
+    
+    if (true) {
+        var a = 123
+        
+    }
+    console.log(a)
+}
+scope()
+*/
 
 // For statement
 
-// const ulEl = document.querySelector('ul')
+/*
+const ulEl = document.querySelector('ul')
 
-// console.log(ulEl)
+console.log(ulEl)
 
-// for (let i = 0; i < 10; i += 1) {
-//    const li = document.createElement('li')
-//    li.textContent = `list-${i + 1}`
-//    if ((i + 1)% 2 === 0) {
-//         li.addEventListener('click', function () {
-//         console.log(li.textContent)
-//        })
-//    }
 
-//    ulEl.appendChild(li)
-// }
+for (let i = 0; i < 10; i += 1) {
+   const li = document.createElement('li')
+   li.textContent = `list-${i + 1}`
+   if ((i + 1)% 2 === 0) {
+        li.addEventListener('click', function () {
+        console.log(li.textContent)
+       })
+   }
+   
+   ulEl.appendChild(li)
+}
+*/
 
 // import random from './getRandom'
 
-// const a = random()
+/*
+const a = random()
 
-// switch (a) {
-//     case 0:
-//         console.log('a is 0')
-//         break
-//     case 2:
-//         console.log('a is 2')
-//         break
-//     case 4:
-//         console.log('a is 4')
-//         break
-//     default:
-//         console.log('rest...')
-// }
+switch (a) {
+    case 0:
+        console.log('a is 0')
+        break
+    case 2:
+        console.log('a is 2')
+        break
+    case 4:
+        console.log('a is 4')
+        break
+    default:
+        console.log('rest...')
+}
+*/
 
-// if (a === 0) {
-//     console.log('a is 0')
-// } else if (a === 2) {
-//     console.log('a is 2')
-// }
-// else {
-//     console.log('rest...')
-// }
+/*
+if (a === 0) {
+    console.log('a is 0')
+} else if (a === 2) {
+    console.log('a is 2')
+}
+else {
+    console.log('rest...')
+}
+*/
 
 // ternary operator
-// const a = 1 < 2
-// console.log(a ? 'true' : 'false')
+
+/*
+const a = 1 < 2
+console.log(a ? 'true' : 'false')
+*/
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -398,7 +464,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49861" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49907" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
