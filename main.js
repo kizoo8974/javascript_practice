@@ -1,5 +1,48 @@
+import _ from 'lodash'
+import checkType from './getType'
+import { getRandom, user as danny } from './getRandom'
+import * as R from './getRandom'
+
+console.log(_.camelCase('the hello world'))
+console.log(checkType([1, 2, 3]))
+console.log(getRandom(), getRandom())
+console.log(danny)
+
+console.log(R)
+
+// Shallow copy, Deep copy
+
+/*
+const user = {
+    name: 'joon kim',
+    age: 85,
+    emails: ['kizoo8974@gmail.com']
+}
+// const copyUser = Object.assign({}, user)
+// const copyUser = {...user}
+const copyUser = _.cloneDeep(user)
+console.log(copyUser === user)
+
+user.age = 22
+console.log('user', user)
+console.log('copyUser', copyUser)
+
+console.log('------')
+console.log('------')
+
+user.emails.push('kizoo@zillings.com')
+console.log(user.emails ===copyUser.emails)
+
+*/
+
+
+
+
+
+
 // .push() .unshift() .reverse() .splice()
 
+/*
 const numbers = [1, 2, 3, 4]
 const fruits = ['Apple', 'Banana', 'Cherry']
 
@@ -20,7 +63,7 @@ console.log(numbers)
 
 fruits.splice(2, 0, 'Orange')
 console.log(fruits)
-
+*/
 
 
 // .includes()
