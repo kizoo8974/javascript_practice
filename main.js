@@ -5,8 +5,35 @@ import { getRandom, user as danny } from './getRandom'
 import * as R from './getRandom'
 */
 
+// JSON
+
+import myData from './myData.json'
+
+console.log(myData)
+
+const user = {
+    name: 'Jeropy',
+    age: 85,
+    emails: [
+        'fjdkjf@fjdk.com',
+        'wdsdd@dofff.com'
+    ]
+}
+console.log('user', user)
+
+const str = JSON.stringify(user)
+console.log('str', str)
+console.log(typeof str)
+
+const obj = JSON.parse(str)
+console.log('obj', obj)
+
+
+
+
 // lodash features
 
+/*
 const usersA = [
     { userId: '1', name: 'Heropy'},
     { userId: '2', name: 'Neo' }
@@ -39,6 +66,10 @@ console.log(foundUserIndex)
 
 _.remove(users,  { name: 'Lewis' })
 console.log(users)
+*/
+
+
+
 
 // import, export
 

@@ -19370,66 +19370,68 @@ var define;
   }
 }.call(this));
 
-},{"buffer":"node_modules/buffer/index.js"}],"main.js":[function(require,module,exports) {
+},{"buffer":"node_modules/buffer/index.js"}],"myData.json":[function(require,module,exports) {
+module.exports = {
+  "name": "Jeropy",
+  "age": 85,
+  "emails": ["fjdkjf@fjdk.com", "wdsdd@dofff.com"]
+};
+},{}],"main.js":[function(require,module,exports) {
 "use strict";
 
 var _lodash = _interopRequireDefault(require("lodash"));
+var _myData = _interopRequireDefault(require("./myData.json"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-/*
-import checkType from './getType'
-import { getRandom, user as danny } from './getRandom'
-import * as R from './getRandom'
-*/
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+console.log(_myData.default);
+var user = {
+  name: 'Jeropy',
+  age: 85,
+  emails: ['fjdkjf@fjdk.com', 'wdsdd@dofff.com']
+};
+console.log('user', user);
+var str = JSON.stringify(user);
+console.log('str', str);
+console.log(_typeof(str));
+var obj = JSON.parse(str);
+console.log('obj', obj);
 
 // lodash features
 
-var usersA = [{
-  userId: '1',
-  name: 'Heropy'
-}, {
-  userId: '2',
-  name: 'Neo'
-}];
-var usersB = [{
-  userId: '1',
-  name: 'Heropy'
-}, {
-  userUd: '3',
-  name: 'Amy'
-}];
-var usersC = usersA.concat(usersB);
-console.log('concat', usersC);
-console.log('uniqBy', _lodash.default.uniqBy(usersC, 'userId'));
-var usersD = _lodash.default.unionBy(usersA, usersB, 'userId');
-console.log('unionBy', usersD);
-var users = [{
-  userId: '1',
-  name: 'Heropy'
-}, {
-  userId: '2',
-  name: 'Neo'
-}, {
-  userId: '3',
-  name: 'Amy'
-}, {
-  userId: '4',
-  name: 'Evan'
-}, {
-  userId: '5',
-  name: 'Lewis'
-}];
-var foundUser = _lodash.default.find(users, {
-  name: 'Amy'
-});
-var foundUserIndex = _lodash.default.findIndex(users, {
-  name: 'Amy'
-});
-console.log(foundUser);
-console.log(foundUserIndex);
-_lodash.default.remove(users, {
-  name: 'Lewis'
-});
-console.log(users);
+/*
+const usersA = [
+    { userId: '1', name: 'Heropy'},
+    { userId: '2', name: 'Neo' }
+]
+const usersB = [
+    { userId: '1', name: 'Heropy' },
+    { userUd: '3', name: 'Amy' }
+]
+
+const usersC = usersA.concat(usersB)
+console.log('concat', usersC)
+console.log('uniqBy', _.uniqBy(usersC, 'userId'))
+
+const usersD = _.unionBy(usersA, usersB, 'userId')
+console.log('unionBy', usersD)
+
+
+const users = [
+    { userId: '1', name: 'Heropy' },
+    { userId: '2', name: 'Neo' },
+    { userId: '3', name: 'Amy' },
+    { userId: '4', name: 'Evan' },
+    { userId: '5', name: 'Lewis' }
+]
+
+const foundUser = _.find(users, { name: 'Amy'})
+const foundUserIndex = _.findIndex(users, { name: 'Amy' })
+console.log(foundUser)
+console.log(foundUserIndex)
+
+_.remove(users,  { name: 'Lewis' })
+console.log(users)
+*/
 
 // import, export
 
@@ -19796,7 +19798,7 @@ else {
 const a = 1 < 2
 console.log(a ? 'true' : 'false')
 */
-},{"lodash":"node_modules/lodash/lodash.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"lodash":"node_modules/lodash/lodash.js","./myData.json":"myData.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -19821,7 +19823,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50268" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51289" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
