@@ -1,14 +1,57 @@
 import _ from 'lodash'
+/*
 import checkType from './getType'
 import { getRandom, user as danny } from './getRandom'
 import * as R from './getRandom'
+*/
 
+// lodash features
+
+const usersA = [
+    { userId: '1', name: 'Heropy'},
+    { userId: '2', name: 'Neo' }
+]
+const usersB = [
+    { userId: '1', name: 'Heropy' },
+    { userUd: '3', name: 'Amy' }
+]
+
+const usersC = usersA.concat(usersB)
+console.log('concat', usersC)
+console.log('uniqBy', _.uniqBy(usersC, 'userId'))
+
+const usersD = _.unionBy(usersA, usersB, 'userId')
+console.log('unionBy', usersD)
+
+
+const users = [
+    { userId: '1', name: 'Heropy' },
+    { userId: '2', name: 'Neo' },
+    { userId: '3', name: 'Amy' },
+    { userId: '4', name: 'Evan' },
+    { userId: '5', name: 'Lewis' }
+]
+
+const foundUser = _.find(users, { name: 'Amy'})
+const foundUserIndex = _.findIndex(users, { name: 'Amy' })
+console.log(foundUser)
+console.log(foundUserIndex)
+
+_.remove(users,  { name: 'Lewis' })
+console.log(users)
+
+// import, export
+
+/*
 console.log(_.camelCase('the hello world'))
 console.log(checkType([1, 2, 3]))
 console.log(getRandom(), getRandom())
 console.log(danny)
 
 console.log(R)
+*/
+
+
 
 // Shallow copy, Deep copy
 

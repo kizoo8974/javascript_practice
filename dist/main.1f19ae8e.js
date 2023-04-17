@@ -19370,46 +19370,77 @@ var define;
   }
 }.call(this));
 
-},{"buffer":"node_modules/buffer/index.js"}],"getType.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = getType;
-function getType(data) {
-  return Object.prototype.toString.call(data).slice(8, -1);
-}
-},{}],"getRandom.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getRandom = getRandom;
-exports.user = void 0;
-function getRandom() {
-  return Math.floor(Math.random() * 10);
-}
-var user = {
-  name: 'Danny',
-  age: 10
-};
-exports.user = user;
-},{}],"main.js":[function(require,module,exports) {
+},{"buffer":"node_modules/buffer/index.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 var _lodash = _interopRequireDefault(require("lodash"));
-var _getType = _interopRequireDefault(require("./getType"));
-var R = _interopRequireWildcard(require("./getRandom"));
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-console.log(_lodash.default.camelCase('the hello world'));
-console.log((0, _getType.default)([1, 2, 3]));
-console.log((0, R.getRandom)(), (0, R.getRandom)());
-console.log(R.user);
-console.log(R);
+/*
+import checkType from './getType'
+import { getRandom, user as danny } from './getRandom'
+import * as R from './getRandom'
+*/
+
+// lodash features
+
+var usersA = [{
+  userId: '1',
+  name: 'Heropy'
+}, {
+  userId: '2',
+  name: 'Neo'
+}];
+var usersB = [{
+  userId: '1',
+  name: 'Heropy'
+}, {
+  userUd: '3',
+  name: 'Amy'
+}];
+var usersC = usersA.concat(usersB);
+console.log('concat', usersC);
+console.log('uniqBy', _lodash.default.uniqBy(usersC, 'userId'));
+var usersD = _lodash.default.unionBy(usersA, usersB, 'userId');
+console.log('unionBy', usersD);
+var users = [{
+  userId: '1',
+  name: 'Heropy'
+}, {
+  userId: '2',
+  name: 'Neo'
+}, {
+  userId: '3',
+  name: 'Amy'
+}, {
+  userId: '4',
+  name: 'Evan'
+}, {
+  userId: '5',
+  name: 'Lewis'
+}];
+var foundUser = _lodash.default.find(users, {
+  name: 'Amy'
+});
+var foundUserIndex = _lodash.default.findIndex(users, {
+  name: 'Amy'
+});
+console.log(foundUser);
+console.log(foundUserIndex);
+_lodash.default.remove(users, {
+  name: 'Lewis'
+});
+console.log(users);
+
+// import, export
+
+/*
+console.log(_.camelCase('the hello world'))
+console.log(checkType([1, 2, 3]))
+console.log(getRandom(), getRandom())
+console.log(danny)
+
+console.log(R)
+*/
 
 // Shallow copy, Deep copy
 
@@ -19765,7 +19796,7 @@ else {
 const a = 1 < 2
 console.log(a ? 'true' : 'false')
 */
-},{"lodash":"node_modules/lodash/lodash.js","./getType":"getType.js","./getRandom":"getRandom.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"lodash":"node_modules/lodash/lodash.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -19790,7 +19821,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52352" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50268" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
