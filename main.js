@@ -1,13 +1,33 @@
 import _ from 'lodash'
+import axios from 'axios'
 /*
 import checkType from './getType'
 import { getRandom, user as danny } from './getRandom'
 import * as R from './getRandom'
 */
 
+// OMDb AOI
+
+function fetchMovies() {
+    axios
+    .get('https://www.omdbapi.com/?apikey=7035c60c&s=frozen')
+    .then((res) => {
+        console.log(res)
+        const h1El = document.querySelector('h1')
+        const imgEl = document.querySelector('img')
+        h1El.textContent = res.data.Search[0].Title
+        imgEl.src = res.data.Search[0].Poster
+    })
+}
+fetchMovies()
+
+
+
+
+
 // local storage, session storage
 
-
+/*
 const user = {
     name: 'Jeropy',
     age: 85,
@@ -26,7 +46,7 @@ obj.age = 22
 
 console.log(obj)
 localStorage.setItem('user', JSON.stringify(obj))
-
+*/
 
 
 
