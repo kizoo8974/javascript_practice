@@ -5,8 +5,36 @@ import { getRandom, user as danny } from './getRandom'
 import * as R from './getRandom'
 */
 
+// local storage, session storage
+
+
+const user = {
+    name: 'Jeropy',
+    age: 85,
+    emails: [
+        'fjdkjf@fjdk.com',
+        'wdsdd@dofff.com'
+    ]
+}
+// localStorage.setItem('user', JSON.stringify(user))
+// console.log(JSON.parse(localStorage.getItem('user')))
+
+const str = localStorage.getItem('user')
+
+const obj = JSON.parse(str)
+obj.age = 22
+
+console.log(obj)
+localStorage.setItem('user', JSON.stringify(obj))
+
+
+
+
+
+
 // JSON
 
+/*
 import myData from './myData.json'
 
 console.log(myData)
@@ -27,7 +55,7 @@ console.log(typeof str)
 
 const obj = JSON.parse(str)
 console.log('obj', obj)
-
+*/
 
 
 

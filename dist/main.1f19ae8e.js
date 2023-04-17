@@ -19370,31 +19370,57 @@ var define;
   }
 }.call(this));
 
-},{"buffer":"node_modules/buffer/index.js"}],"myData.json":[function(require,module,exports) {
-module.exports = {
-  "name": "Jeropy",
-  "age": 85,
-  "emails": ["fjdkjf@fjdk.com", "wdsdd@dofff.com"]
-};
-},{}],"main.js":[function(require,module,exports) {
+},{"buffer":"node_modules/buffer/index.js"}],"main.js":[function(require,module,exports) {
 "use strict";
 
 var _lodash = _interopRequireDefault(require("lodash"));
-var _myData = _interopRequireDefault(require("./myData.json"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-console.log(_myData.default);
+/*
+import checkType from './getType'
+import { getRandom, user as danny } from './getRandom'
+import * as R from './getRandom'
+*/
+
+// local storage, session storage
+
 var user = {
   name: 'Jeropy',
   age: 85,
   emails: ['fjdkjf@fjdk.com', 'wdsdd@dofff.com']
 };
-console.log('user', user);
-var str = JSON.stringify(user);
-console.log('str', str);
-console.log(_typeof(str));
+// localStorage.setItem('user', JSON.stringify(user))
+// console.log(JSON.parse(localStorage.getItem('user')))
+
+var str = localStorage.getItem('user');
 var obj = JSON.parse(str);
-console.log('obj', obj);
+obj.age = 22;
+console.log(obj);
+localStorage.setItem('user', JSON.stringify(obj));
+
+// JSON
+
+/*
+import myData from './myData.json'
+
+console.log(myData)
+
+const user = {
+    name: 'Jeropy',
+    age: 85,
+    emails: [
+        'fjdkjf@fjdk.com',
+        'wdsdd@dofff.com'
+    ]
+}
+console.log('user', user)
+
+const str = JSON.stringify(user)
+console.log('str', str)
+console.log(typeof str)
+
+const obj = JSON.parse(str)
+console.log('obj', obj)
+*/
 
 // lodash features
 
@@ -19798,7 +19824,7 @@ else {
 const a = 1 < 2
 console.log(a ? 'true' : 'false')
 */
-},{"lodash":"node_modules/lodash/lodash.js","./myData.json":"myData.json"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"lodash":"node_modules/lodash/lodash.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -19823,7 +19849,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51289" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51824" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
